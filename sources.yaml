@@ -1,0 +1,138 @@
+sources:
+  - name: instagram_analytics
+    database: stagingdb
+    schema: raw_data
+    tables:
+      - name: media_history
+        description: Konten media yang telah dipublikasikan di `user_id`, baik story maupun bukan story.
+        columns:
+          - name: user_id
+            description: Unique identifier akun yang mempublikasikan postingan.
+            data_type: integer
+          - name: is_story
+            description: Cek apakah postingan ini story atau bukan.
+            data_type: boolean
+          - name: carousel_album_id
+            description: Unique identifier postingan yang menjadi sampulnya carousel content.
+            data_type: integer
+          - name: id
+            description: Unique identifier postingan, baik gambar maupun video.
+            data_type: integer
+          - name: media_type
+            description: Jenis media yang dimuat postingan.
+            data_type: varchar
+          - name: media_product_type
+            description: Jenis postingan yang dipublikasi oleh pengguna.
+            data_type: varchar
+          - name: created_time
+            description: Waktu pembuatan postingan (UTC).
+            data_type: timestamp_ntz
+      - name: media_insights
+        description: Perubahan nilai pada metrik-metrik yang dimiliki tiap media yang telah dipublikasikan, baik story maupun bukan story.
+        columns:
+          - name: id
+            description: Unique identifier postingan, baik gambar maupun video.
+          - name: like_count
+            description: Jumlah like sebuah postingan.
+          - name: comment_count
+            description: Jumlah komentar sebuah postingan.
+          - name: video_views
+            description: Jumlah video view sebuah postingan berjenis video.
+          - name: video_photo_impressions
+            description: Jumlah impresi sebuah postingan.
+          - name: video_photo_reach
+            description: Jumlah jangkauan sebuah postingan.
+          - name: video_photo_saved
+            description: Jumlah tindakan save pada sebuah postingan.
+          - name: video_photo_engagement
+            description: Total interaksi (like, komentar, dan simpan) pada postingan video atau foto.
+          - name: video_photo_views
+            description: Total berapa kali postingan video atau foto tersebut dilihat.
+            data_type: integer
+          - name: video_photo_shares
+            description: Jumlah berapa kali postingan video atau foto dibagikan oleh pengguna.
+            data_type: integer
+          - name: carousel_album_shares
+            description: Jumlah berapa kali postingan carousel atau album dibagikan.
+            data_type: integer
+          - name: carousel_album_views
+            description: Total tayangan di seluruh slide dalam carousel atau album.
+            data_type: integer
+          - name: carousel_album_engagement
+            description: Akumulasi interaksi (like, komentar, simpan) pada postingan carousel.
+            data_type: integer
+          - name: carousel_album_impressions
+            description: Total berapa kali postingan carousel muncul di layar pengguna.
+            data_type: integer
+          - name: carousel_album_reach
+            description: Jumlah akun unik yang melihat postingan carousel setidaknya sekali.
+            data_type: integer
+          - name: carousel_album_saved
+            description: Jumlah berapa kali pengguna menyimpan postingan carousel ke koleksi mereka.
+            data_type: integer
+          - name: carousel_album_video_views
+            description: Total tayangan khusus untuk konten video yang ada di dalam slide carousel.
+            data_type: integer
+          - name: story_impressions
+            description: Total berapa kali story ditampilkan di layar.
+            data_type: integer
+          - name: story_shares
+            description: Jumlah berapa kali story dibagikan melalui DM atau ke story pengguna lain.
+            data_type: integer
+          - name: story_reach
+            description: Jumlah akun unik yang melihat story tersebut.
+            data_type: integer
+          - name: story_views
+            description: Total jumlah pembukaan atau tontonan pada story.
+            data_type: integer
+          - name: story_exits
+            description: Berapa kali pengguna menutup story atau kembali ke beranda saat melihat story tersebut.
+            data_type: integer
+          - name: story_replies
+            description: Jumlah pesan langsung (balasan) yang dikirim melalui story tersebut.
+            data_type: integer
+          - name: story_taps_back
+            description: Jumlah ketukan untuk melihat story atau frame sebelumnya.
+            data_type: integer
+          - name: story_taps_forward
+            description: Jumlah ketukan untuk melihat story atau frame berikutnya dalam satu akun.
+            data_type: integer
+          - name: story_swipe_forward
+            description: Berapa kali pengguna menggeser untuk melewati story Anda ke story akun berikutnya.
+            data_type: integer
+          - name: navigation
+            description: Total tindakan navigasi (ketuk balik, maju, atau keluar) dalam story.
+            data_type: integer
+          - name: reel_reach
+            description: Jumlah akun unik yang melihat konten reel.
+            data_type: integer
+          - name: reel_saved
+            description: Jumlah berapa kali reel disimpan oleh pengguna.
+            data_type: integer
+          - name: reel_aggregated_all_plays_count
+            description: Total pemutaran reel, termasuk pemutaran pertama dan pemutaran ulang (loop).
+            data_type: integer
+          - name: reel_clips_replays_count
+            description: Jumlah spesifik berapa kali reel diputar kembali setelah pemutaran pertama selesai.
+            data_type: integer
+          - name: reel_comments
+            description: Total jumlah komentar pada konten reel.
+            data_type: integer
+          - name: reel_likes
+            description: Total jumlah suka (like) pada konten reel.
+            data_type: integer
+          - name: reel_plays
+            description: Jumlah berapa kali video reel mulai diputar.
+            data_type: integer
+          - name: reel_shares
+            description: Jumlah berapa kali reel dibagikan ke platform lain atau melalui DM.
+            data_type: integer
+          - name: reel_total_interactions
+            description: Total gabungan dari like, komentar, dan share pada reel.
+            data_type: integer
+          - name: reel_views
+            description: Total berapa kali reel dilihat oleh pengguna.
+            data_type: integer
+          - name: timestamp
+            description: Waktu (UTC) metrik-metrik di rekam pada sebuah konten. Setiap konten bisa direkam berkali-kali.
+            data_type: timestamp_ntz
