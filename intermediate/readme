@@ -1,1 +1,6 @@
+Proses ETL dari tabel media_history dan media_insight  pada database stagingdb ke tabel
+1. insta_reel
+2. insta_photo
+3. insta_album
+di database inetermediatedb
 
